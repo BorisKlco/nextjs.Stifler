@@ -3,7 +3,7 @@ import { PiGithubLogoDuotone } from "react-icons/pi";
 
 export default function Navbar() {
   return (
-    <div className="flex justify-between w-full h-[100px] bg-wbar px-6 border-b-2 border-wstroke">
+    <div className="flex justify-between w-full h-[100px] bg-wbar px-6 border-b-2 border-wstroke select-none">
       <div className="flex items-center">
         <Image
           src="/images/bars/logo.svg"
@@ -17,7 +17,7 @@ export default function Navbar() {
         </h1>
       </div>
       <div className="flex items-center ">
-        <div className="text-wwhite transition hover:scale-125">
+        <div className="text-wwhite transition hover:scale-125 cursor-pointer">
           <PiGithubLogoDuotone
             className="drop-shadow-[0px_0px_1px_rgba(0,0,0)]"
             size={48}
