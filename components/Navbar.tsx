@@ -16,7 +16,7 @@ export default function Navbar() {
           Stifler
         </h1>
       </div>
-      <div className="flex items-center ">
+      <div className="hidden sm:flex items-center ">
         <div className="text-wwhite transition hover:scale-125 cursor-pointer">
           <PiGithubLogoDuotone
             className="drop-shadow-[0px_0px_1px_rgba(0,0,0)]"
