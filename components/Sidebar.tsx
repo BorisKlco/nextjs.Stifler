@@ -2,13 +2,19 @@
 import Image from "next/image";
 import Filter from "./Filter";
 import React, { useState } from "react";
-
-type ValuePiece = Date | null;
-
-type Value = ValuePiece | [ValuePiece, ValuePiece];
+import Datepicker from "react-tailwindcss-datepicker";
 
 export default function Sidebar() {
   const [filter, setFilter] = useState(false);
+  const [value, setValue] = useState({
+    startDate: null,
+    endDate: null,
+  });
+
+  const handleValueChange = (newValue) => {
+    console.log("newValue:", newValue);
+    setValue(newValue);
+  };
 
   return (
     <div className="flex h-full">
@@ -21,8 +27,14 @@ export default function Sidebar() {
               </h1>
               <button className="select-none">All</button>
             </div>
+
+            <Datepicker
+              useRange={false}
+              value={value}
+              onChange={handleValueChange}
+            />
           </div>
-          <div className="flex flex-col pt-4 gap-2">
+          <div className="flex flex-col pt-4 gap-3">
             <div className="flex justify-between items-center font-bold text-2xl text-wwhite ">
               <h1 className="drop-shadow-[0px_0px_1px_rgba(0,0,0)]">
                 Filters:
