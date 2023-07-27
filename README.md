@@ -1,6 +1,6 @@
 ## nextjs.Stifler
 
-Stifler is viewer for Caddy logs.
+Stifler is viewer for Caddy logs.\
 Caddy 2 is a powerful, enterprise-ready, open source web server with automatic HTTPS. 
 
 **How enable Caddy logs ?**

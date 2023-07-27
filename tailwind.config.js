@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     colors: {
       wwhite: "#F2F2F2",
+      wfill: "#D9D9D9",
       wbar: "#4158D9",
       wbg: "#2B45D9",
       wstroke: "#A7B2F2",
