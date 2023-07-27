@@ -1,23 +1,30 @@
 "use client";
-import { ReactNode } from "react";
 import { useState } from "react";
-import DateRangePicker from "@wojtekmaj/react-daterange-picker";
 import Image from "next/image";
-import "@wojtekmaj/react-daterange-picker/dist/DateRangePicker.css";
-import "react-calendar/dist/Calendar.css";
 import Filter from "./Filter";
+import Datepicker from "react-tailwindcss-datepicker";
+import { DateRangeType } from "react-tailwindcss-datepicker/dist/types";
 
-type ValuePiece = Date | null;
+type CalStateProps = {
+  startDate: string | null;
+  endDate: string | null;
+};
 
-type Value = ValuePiece | [ValuePiece, ValuePiece];
-
-export default function Sidebar({ children }: { children: ReactNode }) {
-  const [value, onChange] = useState<Value>([new Date(), new Date()]);
+export default function Sidebar() {
   const [filter, setFilter] = useState(false);
+  const [value, setValue] = useState<DateRangeType>({
+    startDate: null,
+    endDate: null,
+  });
+
+  const handleValueChange = (newValue:any) => {
+    console.log("newValue:", newValue);
+    setValue(newValue);
+  };
 
   return (
     <div className="flex h-full">
-      <div className="hidden xl:flex min-w-[300px] h-full bg-wbar border-r border-wstroke overflow-y-hidden">
+      <div className="hidden xl:flex min-w-[300px] h-full bg-wbar border-r border-wstroke">
         <div className="flex flex-col px-6">
           <div>
             <div className="flex justify-between pt-4 font-bold text-2xl text-wwhite">
@@ -26,10 +33,11 @@ export default function Sidebar({ children }: { children: ReactNode }) {
               </h1>
               <button className="select-none">All</button>
             </div>
-            <DateRangePicker
-              className="my-3"
-              onChange={onChange}
+            <Datepicker
+              primaryColor={"indigo"}
+              useRange={false}
               value={value}
+              onChange={handleValueChange}
             />
           </div>
           <div className="flex flex-col pt-4 gap-2">
@@ -59,9 +67,6 @@ export default function Sidebar({ children }: { children: ReactNode }) {
           </div>
         </div>
       </div>
-      <main className="text-6xl text-white w-full flex justify-center">
-        {children}
-      </main>
     </div>
   );
 }
