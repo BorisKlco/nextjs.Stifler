@@ -1,44 +1,26 @@
 "use client";
-import { useState } from "react";
 import Image from "next/image";
 import Filter from "./Filter";
-import Datepicker from "react-tailwindcss-datepicker";
-import { DateRangeType } from "react-tailwindcss-datepicker/dist/types";
+import React, { useState } from "react";
 
-type CalStateProps = {
-  startDate: string | null;
-  endDate: string | null;
-};
+type ValuePiece = Date | null;
+
+type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 export default function Sidebar() {
   const [filter, setFilter] = useState(false);
-  const [value, setValue] = useState<DateRangeType>({
-    startDate: null,
-    endDate: null,
-  });
-
-  const handleValueChange = (newValue:any) => {
-    console.log("newValue:", newValue);
-    setValue(newValue);
-  };
 
   return (
     <div className="flex h-full">
       <div className="hidden xl:flex min-w-[300px] h-full bg-wbar border-r border-wstroke">
-        <div className="flex flex-col px-6">
-          <div>
+        <div className="flex flex-col px-6 w-full">
+          <div className="">
             <div className="flex justify-between pt-4 font-bold text-2xl text-wwhite">
               <h1 className="drop-shadow-[0px_0px_1px_rgba(0,0,0)]">
                 Calendar:
               </h1>
               <button className="select-none">All</button>
             </div>
-            <Datepicker
-              primaryColor={"indigo"}
-              useRange={false}
-              value={value}
-              onChange={handleValueChange}
-            />
           </div>
           <div className="flex flex-col pt-4 gap-2">
             <div className="flex justify-between items-center font-bold text-2xl text-wwhite ">
