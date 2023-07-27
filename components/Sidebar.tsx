@@ -15,7 +15,7 @@ export default function Sidebar({ children }: { children: ReactNode }) {
   const [filter, setFilter] = useState(false);
 
   return (
-    <div className="w-[300px] h-full bg-wbar border-r-2 border-wstroke overflow-hidden">
+    <div className="w-[300px] h-full bg-wbar border-r border-wstroke overflow-hidden">
       <div className="flex flex-col px-6">
         <div>
           <div className="flex justify-between pt-4 font-bold text-2xl text-wwhite">
