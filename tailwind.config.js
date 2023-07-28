@@ -1,10 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",
+    "./node_modules/react-tailwindcss-datepicker/dist/index.cjs.js",
   ],
   theme: {
     colors: {
@@ -15,5 +16,5 @@ module.exports = {
       wstroke: "#A7B2F2",
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

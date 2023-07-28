@@ -1,17 +1,18 @@
 "use client";
 import Image from "next/image";
 import Filter from "./Filter";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import Datepicker from "react-tailwindcss-datepicker";
+import { DateRangeType } from "react-tailwindcss-datepicker/dist/types";
 
-export default function Sidebar() {
+export default function Sidebar({ children }: { children: ReactNode }) {
   const [filter, setFilter] = useState(false);
-  const [value, setValue] = useState({
+  const [value, setValue] = useState<DateRangeType>({
     startDate: null,
     endDate: null,
   });
 
-  const handleValueChange = (newValue) => {
+  const handleValueChange = (newValue: any) => {
     console.log("newValue:", newValue);
     setValue(newValue);
   };
@@ -61,6 +62,7 @@ export default function Sidebar() {
           </div>
         </div>
       </div>
+      <section className="w-full">{children}</section>
     </div>
   );
 }
