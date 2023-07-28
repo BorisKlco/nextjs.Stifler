@@ -16,6 +16,7 @@
     "dayjs": "^1.11.9",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
+    "moment": "^2.29.4",
     "next": "13.4.12",
     "npm": "^9.8.1",
     "postcss": "8.4.27",
