@@ -37,7 +37,7 @@ export default async function Home() {
             </tr>
           </thead>
           <tbody>
-            {objectData.map((line) => (
+            {/* {objectData.map((line) => (
               <RowItem
                 key={line.ts}
                 date={line.ts}
@@ -45,6 +45,9 @@ export default async function Home() {
                 method={`${line.request.method}, ${line.request.uri}`}
                 agent={line.request.headers["User-Agent"]}
               />
+            ))} */}
+            {objectData.map((line) => (
+              <RowItem key={line.ts} props={...line} />
             ))}
           </tbody>
         </table>
