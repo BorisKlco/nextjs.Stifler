@@ -30,6 +30,7 @@ export default function Sidebar({ children }: { children: ReactNode }) {
             </div>
 
             <Datepicker
+              containerClassName="relative mt-4"
               useRange={false}
               value={value}
               onChange={handleValueChange}
@@ -62,7 +63,7 @@ export default function Sidebar({ children }: { children: ReactNode }) {
           </div>
         </div>
       </div>
-      <section className="w-full">{children}</section>
+      <section className="w-full ">{children}</section>
     </div>
   );
 }
