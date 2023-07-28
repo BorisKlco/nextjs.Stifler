@@ -3,7 +3,7 @@ import moment from "moment";
 export default function RowItem({ props }) {
   const logDate = moment.unix(props.ts).format("YYYY-MM-DD HH:mm:ss.SSS");
   return (
-    <tr className="bg-blue-600 border-b border-blue-400">
+    <tr className="bg-blue-600 border-b border-blue-400 hover:brightness-125 cursor-pointer">
       <th className="px-6 py-4 truncate bg-blue-500 max-w-[8rem]">{logDate}</th>
       <td className="px-6 py-4 truncate max-w-[6rem]">
         {props.request.remote_ip}
