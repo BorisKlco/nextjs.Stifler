@@ -46,7 +46,7 @@ export default async function Home() {
                 agent={line.request.headers["User-Agent"]}
               />
             ))} */}
-            {objectData.map((line) => (
+            {objectData.map((line: any) => (
               <RowItem key={line.ts} props={...line} />
             ))}
           </tbody>
