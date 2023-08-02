@@ -7,7 +7,6 @@ export default async function Home() {
   const filePath = path.join(process.cwd(), "yt.json");
   const jsonData: any = await fsPromises.readFile(filePath);
   const objectData = JSON.parse(jsonData);
-  console.log(objectData[6].request.headers["User-Agent"]);
 
   return (
     <div className="flex flex-col items-center max-h-[80%]">
@@ -32,7 +31,7 @@ export default async function Home() {
                 User-Agent
               </th>
               <th scope="col" className="px-6 py-3 bg-blue-500">
-                Action
+                Referer
               </th>
             </tr>
           </thead>

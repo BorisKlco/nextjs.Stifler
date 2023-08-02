@@ -56,9 +56,6 @@ export default function Sidebar({ children }: { children: ReactNode }) {
               </button>
             </div>
             <Filter label="IP Range" />
-            <Filter label="Host" />
-            <Filter label="Method" />
-            <Filter label="URI" />
             <Filter label="Referer" />
           </div>
         </div>

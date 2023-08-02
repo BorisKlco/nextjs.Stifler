@@ -1,9 +1,9 @@
 import moment from "moment";
 
-export default function RowItem({ props }) {
+export default function RowItem({ props }: any) {
   const logDate = moment.unix(props.ts).format("YYYY-MM-DD HH:mm:ss.SSS");
   return (
-    <tr className="bg-blue-600 border-b border-blue-400 hover:brightness-125 cursor-pointer">
+    <tr className="bg-blue-600 border-b border-blue-400 cursor-pointer text-wfill hover:text-wwhite">
       <th className="px-6 py-4 truncate bg-blue-500 max-w-[8rem]">{logDate}</th>
       <td className="px-6 py-4 truncate max-w-[6rem]">
         {props.request.remote_ip}
@@ -12,7 +12,9 @@ export default function RowItem({ props }) {
       <td className="px-6 py-4 truncate max-w-[8rem]">
         {props.request.headers["User-Agent"]}
       </td>
-      <td className="px-6 py-4 truncate bg-blue-500">Item</td>
+      <td className="px-6 py-4 truncate bg-blue-500 max-w-[8rem]">
+        {props.request.headers["Referer"]}
+      </td>
     </tr>
   );
 }
