@@ -18,7 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${font.className} bg-wbg overflow-y-hidden`}>
+      <body
+        className={`${font.className} bg-wbg overflow-y-hidden antialiased`}
+      >
         <Navbar />
         <Sidebar>{children}</Sidebar>
       </body>
