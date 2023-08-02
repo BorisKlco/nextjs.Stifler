@@ -5,13 +5,20 @@ import React, { ReactNode } from "react";
 import Datepicker from "react-tailwindcss-datepicker";
 import useFilter from "@/hooks/useFilter";
 
+type DateType = string | null | Date;
+type DateRangeType = {
+  startDate: DateType;
+  endDate: DateType;
+};
+type DateValueType = DateRangeType | null;
+
 export default function Sidebar({ children }: { children: ReactNode }) {
   const filter = useFilter((store) => store.test);
   const setFilter = useFilter((store) => store.setTest);
   const dateFilter = useFilter((store) => store.dateFilter);
   const setDateFilter = useFilter((store) => store.setDateFilter);
 
-  const handleValueChange = (newValue: any) => {
+  const handleValueChange = (newValue: DateValueType) => {
     console.log("newValue:", newValue);
     setDateFilter(newValue);
   };
