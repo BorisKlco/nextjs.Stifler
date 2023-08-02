@@ -1,15 +1,27 @@
 import { create } from "zustand";
 
+type DateType = string | null | Date;
+
+type DateRangeType = {
+  startDate: DateType;
+  endDate: DateType;
+};
+
 type FilterState = {
   test: boolean;
-  text: string;
+  dateFilter: DateRangeType;
   setTest: (state: boolean) => void;
+  setDateFilter: (newDate: DateRangeType) => void;
 };
 
 const useFilter = create<FilterState>((set) => ({
   test: false,
-  text: "hahahahahha",
+  dateFilter: {
+    startDate: null,
+    endDate: null,
+  },
   setTest: (state) => set({ test: state }),
+  setDateFilter: (newDate) => set({ dateFilter: newDate }),
 }));
 
 export default useFilter;
