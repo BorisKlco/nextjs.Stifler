@@ -39,11 +39,6 @@ export default async function Home() {
             </tr>
           </thead>
           <TableBody logs={formattedLogs} />
-          {/* <tbody>
-            {objectData.map((line: any) => (
-              <RowItem key={line.ts} props={...line} />
-            ))}
-          </tbody> */}
         </table>
       </div>
     </div>
