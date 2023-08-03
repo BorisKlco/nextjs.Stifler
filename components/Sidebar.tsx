@@ -9,7 +9,8 @@ type DateType = string | null | Date;
 type DateRangeType = {
   startDate: DateType;
   endDate: DateType;
-};
+} | null;
+
 type DateValueType = DateRangeType | null;
 
 export default function Sidebar({ children }: { children: ReactNode }) {
@@ -18,9 +19,9 @@ export default function Sidebar({ children }: { children: ReactNode }) {
   const dateFilter = useFilter((store) => store.dateFilter);
   const setDateFilter = useFilter((store) => store.setDateFilter);
 
-  const handleValueChange = (newValue: DateValueType) => {
-    console.log("newValue:", newValue);
-    setDateFilter(newValue);
+  const handleValueChange = (newDate: DateValueType) => {
+    console.log("newValue:", newDate);
+    setDateFilter(newDate);
   };
 
   return (
@@ -32,7 +33,6 @@ export default function Sidebar({ children }: { children: ReactNode }) {
               <h1 className="drop-shadow-[0px_0px_1px_rgba(0,0,0)]">
                 Calendar:
               </h1>
-              <button className="select-none">All</button>
             </div>
 
             <Datepicker

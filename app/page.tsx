@@ -1,12 +1,15 @@
-import RowItem from "@/components/RowItem";
+import TableBody from "@/components/TableBody";
 
 import fsPromises from "fs/promises";
 import path from "path";
 
 export default async function Home() {
-  const filePath = path.join(process.cwd(), "yt.json");
-  const jsonData: any = await fsPromises.readFile(filePath);
-  const objectData = JSON.parse(jsonData);
+  const filePath = path.join(process.cwd(), "y2.json");
+  const jsonData = await fsPromises.readFile(filePath, "utf-8");
+  const logEntries = jsonData.trim().split("\n");
+  const formattedLogs = logEntries.map((logEntry) => {
+    return JSON.parse(logEntry);
+  });
 
   return (
     <div className="flex flex-col items-center max-h-[80%]">
@@ -35,20 +38,12 @@ export default async function Home() {
               </th>
             </tr>
           </thead>
-          <tbody>
-            {/* {objectData.map((line) => (
-              <RowItem
-                key={line.ts}
-                date={line.ts}
-                ip={line.request.remote_ip}
-                method={`${line.request.method}, ${line.request.uri}`}
-                agent={line.request.headers["User-Agent"]}
-              />
-            ))} */}
+          <TableBody logs={formattedLogs} />
+          {/* <tbody>
             {objectData.map((line: any) => (
               <RowItem key={line.ts} props={...line} />
             ))}
-          </tbody>
+          </tbody> */}
         </table>
       </div>
     </div>

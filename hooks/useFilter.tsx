@@ -5,7 +5,7 @@ type DateType = string | null | Date;
 type DateRangeType = {
   startDate: DateType;
   endDate: DateType;
-};
+} | null;
 
 type FilterState = {
   test: boolean;
