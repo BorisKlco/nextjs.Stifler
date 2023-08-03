@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
-import Sidebar from "@/components/Sidebar";
 
 const font = Nunito_Sans({ subsets: ["latin"] });
 
@@ -22,7 +21,7 @@ export default function RootLayout({
         className={`${font.className} bg-wbg overflow-y-hidden antialiased`}
       >
         <Navbar />
-        <Sidebar>{children}</Sidebar>
+        {children}
       </body>
     </html>
   );

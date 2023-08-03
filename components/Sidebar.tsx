@@ -61,8 +61,8 @@ export default function Sidebar({ children }: { children: ReactNode }) {
                 />
               </button>
             </div>
-            <Filter label="IP Range" />
-            <Filter label="Referer" />
+            <Filter label="IP's" />
+            <Filter label="Status" />
           </div>
         </div>
       </div>
