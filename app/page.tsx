@@ -5,7 +5,7 @@ import fsPromises from "fs/promises";
 import path from "path";
 
 export default async function Home() {
-  const filePath = path.join(process.cwd(), "yTest.json");
+  const filePath = path.join(process.cwd(), "y.json");
   const jsonData = await fsPromises.readFile(filePath, "utf-8");
   const logEntries = jsonData.trim().split("\n");
   const formattedLogs = logEntries.map((logEntry) => {
@@ -13,7 +13,7 @@ export default async function Home() {
   });
 
   const ipList: string[] = [];
-  const statusList: string[] = [];
+  const statusList: number[] = [];
 
   for (const item in formattedLogs) {
     if (!ipList.includes(formattedLogs[item].request.remote_ip)) {
@@ -24,11 +24,11 @@ export default async function Home() {
     }
   }
 
-  console.log("1-WTFFFF", ipList, statusList);
-  console.log(Object.keys(formattedLogs).length);
+  // console.log("1-WTFFFF", ipList, statusList);
+  // console.log(Object.keys(formattedLogs).length);
 
   return (
-    <Sidebar>
+    <Sidebar ip={ipList} status={statusList}>
       <div className="flex flex-col items-center max-h-[80%]">
         <h1 className="text-5xl mt-4 font-bold text-wwhite drop-shadow-[0px_0px_1px_rgba(0,0,0)]">
           Dashboard

@@ -13,7 +13,15 @@ type DateRangeType = {
 
 type DateValueType = DateRangeType | null;
 
-export default function Sidebar({ children }: { children: ReactNode }) {
+export default function Sidebar({
+  children,
+  ip,
+  status,
+}: {
+  children: ReactNode;
+  ip: string[];
+  status: number[];
+}) {
   const filter = useFilter((store) => store.test);
   const setFilter = useFilter((store) => store.setTest);
   const dateFilter = useFilter((store) => store.dateFilter);
@@ -61,8 +69,8 @@ export default function Sidebar({ children }: { children: ReactNode }) {
                 />
               </button>
             </div>
-            <Filter label="IP's" />
-            <Filter label="Status" />
+            <Filter label="IP's" filter={ip} />
+            <Filter label="Status" filter={status} />
           </div>
         </div>
       </div>

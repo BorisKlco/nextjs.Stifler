@@ -4,9 +4,10 @@ import { Fragment, useState } from "react";
 
 type FilterProps = {
   label: String;
+  filter: string[] | number[];
 };
 
-export default function Filter({ label }: FilterProps) {
+export default function Filter({ label, filter }: FilterProps) {
   let [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -54,7 +55,9 @@ export default function Filter({ label }: FilterProps) {
                   >
                     {label}
                   </Dialog.Title>
-                  <p>asdasd</p>
+                  {filter.map((item) => (
+                    <p key={item}>{item}</p>
+                  ))}
 
                   <div className="mt-4 text-center">
                     <button
