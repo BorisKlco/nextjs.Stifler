@@ -13,14 +13,14 @@ export default async function Home() {
   });
 
   const ipList: string[] = [];
-  const statusList: number[] = [];
+  const statusList: string[] = [];
 
   for (const item in formattedLogs) {
     if (!ipList.includes(formattedLogs[item].request.remote_ip)) {
       ipList.push(formattedLogs[item].request.remote_ip);
     }
-    if (!statusList.includes(formattedLogs[item].status)) {
-      statusList.push(formattedLogs[item].status);
+    if (!statusList.includes(formattedLogs[item].status.toString())) {
+      statusList.push(formattedLogs[item].status.toString());
     }
   }
 

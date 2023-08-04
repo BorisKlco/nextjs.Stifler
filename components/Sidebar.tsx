@@ -20,7 +20,7 @@ export default function Sidebar({
 }: {
   children: ReactNode;
   ip: string[];
-  status: number[];
+  status: string[];
 }) {
   const filter = useFilter((store) => store.test);
   const setFilter = useFilter((store) => store.setTest);
