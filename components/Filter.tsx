@@ -63,9 +63,10 @@ export default function Filter({ label, filter }: FilterProps) {
                     {filter.map((item: any) => (
                       <label
                         key={item}
-                        className="outline outline-1 outline-black py-3 px-2 text-wwhite bg-blue-500 hover:bg-blue-600 has-[:checked]:bg-blue-600"
+                        className="group outline outline-1 outline-black py-3 px-2 text-wwhite bg-blue-500 hover:bg-blue-600 has-[:checked]:bg-blue-600"
                       >
-                        <input className="" type="checkbox" /> {item}
+                        <input className="group" type="checkbox" />{" "}
+                        {item}
                       </label>
                     ))}
                   </div>
