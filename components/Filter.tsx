@@ -55,9 +55,20 @@ export default function Filter({ label, filter }: FilterProps) {
                   >
                     {label}
                   </Dialog.Title>
-                  {filter.map((item) => (
+                  {/* {filter.map((item) => (
                     <p key={item}>{item}</p>
-                  ))}
+                  ))} */}
+
+                  <div className="flex flex-wrap gap-1 accent-wbg select-none">
+                    {filter.map((item: any) => (
+                      <label
+                        key={item}
+                        className="outline outline-1 outline-black py-3 px-2 text-wwhite bg-blue-500 hover:bg-blue-600 has-[:checked]:bg-blue-600"
+                      >
+                        <input className="" type="checkbox" /> {item}
+                      </label>
+                    ))}
+                  </div>
 
                   <div className="mt-4 text-center">
                     <button
