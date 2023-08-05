@@ -8,19 +8,19 @@ type DateRangeType = {
 } | null;
 
 type FilterState = {
-  test: boolean;
+  enableFilter: boolean;
   dateFilter: DateRangeType;
-  setTest: (state: boolean) => void;
+  setEnableFilter: (state: boolean) => void;
   setDateFilter: (newDate: DateRangeType) => void;
 };
 
 const useFilter = create<FilterState>((set) => ({
-  test: false,
+  enableFilter: false,
   dateFilter: {
     startDate: null,
     endDate: null,
   },
-  setTest: (state) => set({ test: state }),
+  setEnableFilter: (state) => set({ enableFilter: state }),
   setDateFilter: (newDate) => set({ dateFilter: newDate }),
 }));
 

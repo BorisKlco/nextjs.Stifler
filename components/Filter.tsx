@@ -1,6 +1,5 @@
 "use client";
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import Modal from "./Modal";
 
 type FilterProps = {

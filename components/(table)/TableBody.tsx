@@ -1,5 +1,3 @@
-"use client";
-
 import RowItem from "./RowItem";
 
 export default function TableBody({ logs }: any) {

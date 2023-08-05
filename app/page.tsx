@@ -1,11 +1,11 @@
-import Sidebar from "@/components/Sidebar";
-import TableBody from "@/components/TableBody";
+import Sidebar from "@/components/(bars)/Sidebar";
+import TableBody from "@/components/(table)/TableBody";
 
 import fsPromises from "fs/promises";
 import path from "path";
 
 export default async function Home() {
-  const filePath = path.join(process.cwd(), "y2.json");
+  const filePath = path.join(process.cwd(), "y.json");
   const jsonData = await fsPromises.readFile(filePath, "utf-8");
   const logEntries = jsonData.trim().split("\n");
   const formattedLogs = logEntries.map((logEntry) => {

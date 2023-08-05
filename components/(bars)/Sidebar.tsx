@@ -1,17 +1,10 @@
 "use client";
 import Image from "next/image";
-import Filter from "./Filter";
+import Filter from "../Filter";
 import React, { ReactNode } from "react";
 import Datepicker from "react-tailwindcss-datepicker";
 import useFilter from "@/hooks/useFilter";
-
-type DateType = string | null | Date;
-type DateRangeType = {
-  startDate: DateType;
-  endDate: DateType;
-} | null;
-
-type DateValueType = DateRangeType | null;
+import { DateValueType } from "react-tailwindcss-datepicker/dist/types";
 
 export default function Sidebar({
   children,
@@ -22,12 +15,12 @@ export default function Sidebar({
   ip: string[];
   status: string[];
 }) {
-  const filter = useFilter((store) => store.test);
-  const setFilter = useFilter((store) => store.setTest);
+  const enableFilter = useFilter((store) => store.enableFilter);
+  const setEnableFilter = useFilter((store) => store.setEnableFilter);
   const dateFilter = useFilter((store) => store.dateFilter);
   const setDateFilter = useFilter((store) => store.setDateFilter);
 
-  const handleValueChange = (newDate: DateValueType) => {
+  const handleValueChange = (newDate: DateValueType | null) => {
     console.log("newValue:", newDate);
     setDateFilter(newDate);
   };
@@ -55,10 +48,10 @@ export default function Sidebar({
               <h1 className="drop-shadow-[0px_0px_1px_rgba(0,0,0)]">
                 Filters:
               </h1>
-              <button onClick={() => setFilter(!filter)}>
+              <button onClick={() => setEnableFilter(!enableFilter)}>
                 <Image
                   src={
-                    filter
+                    enableFilter
                       ? "/images/bars/toggle-on.svg"
                       : "/images/bars/toggle-off.svg"
                   }
