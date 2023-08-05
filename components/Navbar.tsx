@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { PiGithubLogoDuotone } from "react-icons/pi";
 
 export default function Navbar() {
@@ -18,7 +19,12 @@ export default function Navbar() {
       </div>
       <div className="hidden sm:flex items-center">
         <div className="text-wwhite transition hover:scale-125 cursor-pointer">
-          <PiGithubLogoDuotone size={48} />
+          <Link
+            href="https://github.com/BorisKlco/nextjs.Stifler"
+            target="_blank"
+          >
+            <PiGithubLogoDuotone size={48} />
+          </Link>
         </div>
       </div>
     </div>

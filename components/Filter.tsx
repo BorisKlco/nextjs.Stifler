@@ -92,11 +92,11 @@ export default function Filter({ label, filter }: FilterProps) {
                         None
                       </button>
                     </div>
-                    <div className="flex flex-wrap gap-x-4 gap-y-2 accent-wbg select-none my-2">
+                    <div className="flex flex-wrap gap-x-4 gap-y-2 accent-wbg select-none my-2 justify-center">
                       {filter.map((item: any) => (
                         <label
                           key={item}
-                          className="rounded-md outline outline-1 outline-black py-3 px-2 text-wwhite bg-blue-500 hover:bg-blue-600 has-[:checked]:bg-blue-600"
+                          className="rounded-md w-[10rem] outline outline-1 outline-black py-3 px-2 text-wwhite bg-blue-500 hover:bg-blue-600 has-[:checked]:bg-blue-600"
                         >
                           <input
                             checked={filterValue.includes(item)}
