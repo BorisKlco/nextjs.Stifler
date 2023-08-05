@@ -8,9 +8,13 @@ type DateRangeType = {
 } | null;
 
 type FilterState = {
-  enableFilter: boolean;
+  enableFilter: Boolean;
   dateFilter: DateRangeType;
-  setEnableFilter: (state: boolean) => void;
+  ip: String[];
+  status: String[];
+  setIP: (ip: String[]) => void;
+  setStatus: (status: String[]) => void;
+  setEnableFilter: (state: Boolean) => void;
   setDateFilter: (newDate: DateRangeType) => void;
 };
 
@@ -20,6 +24,13 @@ const useFilter = create<FilterState>((set) => ({
     startDate: null,
     endDate: null,
   },
+
+  ip: [],
+  status: [],
+
+  setIP: (ip) => set({ ip: [...ip] }),
+  setStatus: (status) => set({ status: [...status] }),
+
   setEnableFilter: (state) => set({ enableFilter: state }),
   setDateFilter: (newDate) => set({ dateFilter: newDate }),
 }));

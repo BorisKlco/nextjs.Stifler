@@ -20,6 +20,12 @@ export default function Sidebar({
   const dateFilter = useFilter((store) => store.dateFilter);
   const setDateFilter = useFilter((store) => store.setDateFilter);
 
+  const filterIP = useFilter((store) => store.ip);
+  const setFilterIP = useFilter((store) => store.setIP);
+
+  const filterStatus = useFilter((store) => store.status);
+  const setFilterStatus = useFilter((store) => store.setStatus);
+
   const handleValueChange = (newDate: DateValueType | null) => {
     console.log("newValue:", newDate);
     setDateFilter(newDate);
@@ -62,8 +68,18 @@ export default function Sidebar({
                 />
               </button>
             </div>
-            <Filter label="IP's" filter={ip} />
-            <Filter label="Status" filter={status} />
+            <Filter
+              label="IP's"
+              store={filterIP}
+              setStore={setFilterIP}
+              filter={ip}
+            />
+            <Filter
+              label="Status"
+              store={filterStatus}
+              setStore={setFilterStatus}
+              filter={status}
+            />
           </div>
         </div>
       </div>

@@ -4,31 +4,36 @@ import Modal from "./Modal";
 
 type FilterProps = {
   label: String;
+  store: String[];
+  setStore: (store: String[]) => void;
   filter: string[];
 };
 
-export default function Filter({ label, filter }: FilterProps) {
+export default function Filter({
+  label,
+  store,
+  setStore,
+  filter,
+}: FilterProps) {
   let [isOpen, setIsOpen] = useState(false);
-  let [filterValue, setFilterValue] = useState<string[]>([]);
 
   const handleCheckboxChange = (event: any) => {
     const { value, checked } = event.target;
     if (checked) {
-      setFilterValue((prevCheckedItems) => [...prevCheckedItems, value]);
+      const checkNewValue = [...store, value];
+      setStore([...checkNewValue]);
     } else {
-      setFilterValue((prevCheckedItems) =>
-        prevCheckedItems.filter((item) => item !== value)
-      );
+      const removeValue = store.filter((item) => item !== value);
+      setStore([...removeValue]);
     }
-    console.log(filterValue);
   };
 
   const selectAll = () => {
-    setFilterValue([...filter]);
+    setStore([...filter]);
   };
 
   const selectNone = () => {
-    setFilterValue([]);
+    setStore([]);
   };
 
   return (
@@ -58,7 +63,7 @@ export default function Filter({ label, filter }: FilterProps) {
                 className="rounded-md w-[10rem] outline outline-1 outline-black py-3 px-2 text-wwhite bg-blue-500 hover:bg-blue-600 has-[:checked]:bg-blue-600"
               >
                 <input
-                  checked={filterValue.includes(item)}
+                  checked={store.includes(item)}
                   onChange={handleCheckboxChange}
                   className="group"
                   type="checkbox"
