@@ -24,9 +24,6 @@ export default async function Home() {
     }
   }
 
-  // console.log("1-WTFFFF", ipList, statusList);
-  // console.log(Object.keys(formattedLogs).length);
-
   return (
     <Sidebar ip={ipList} status={statusList}>
       <div className="flex flex-col items-center max-h-[80%]">
