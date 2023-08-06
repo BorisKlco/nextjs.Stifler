@@ -20,7 +20,6 @@ export default function TableBody({ logs }: any) {
       } else {
         const startDate = moment(filter.dateFilter?.startDate).unix();
         const endDate = moment(filter.dateFilter?.endDate).unix();
-        console.log(startDate, endDate);
 
         filterDate = logs.filter(
           (item: any) =>

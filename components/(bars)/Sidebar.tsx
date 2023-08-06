@@ -27,7 +27,6 @@ export default function Sidebar({
   const setFilterStatus = useFilter((store) => store.setStatus);
 
   const handleValueChange = (newDate: DateValueType | null) => {
-    console.log("newValue:", newDate);
     setDateFilter(newDate);
   };
 

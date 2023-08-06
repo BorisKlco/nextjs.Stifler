@@ -31,7 +31,13 @@ export default async function Home() {
           Dashboard
         </h1>
 
-        <div className="shadow-md overflow-x-auto sm:rounded-lg w-[80%] border border-wstroke mt-8 ">
+        <div className="flex gap-2 mt-4">
+          <div className=" flex gap-2 py-3 px-6 border border-wstroke m-2 rounded-lg bg-blue-500 text-wwhite text-lg">
+            <h1 className="text-bold">Uniq Ip&apos;s: </h1> {ipList.length}
+          </div>
+        </div>
+
+        <div className="shadow-md overflow-x-auto sm:rounded-lg w-[80%] border border-wstroke mt-4 ">
           <table className="w-full text-sm text-left text-wwhite">
             <thead className="text-xs uppercase bg-blue-600 border-b border-blue-400 text-wwhite">
               <tr>
